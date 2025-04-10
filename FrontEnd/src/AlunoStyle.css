@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.button {
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1.9px solid black;
+  padding: 5px 5px;
+  margin: 1px 9px;
+}
+
+.button:hover {
+  background-color: rgba(248, 119, 119, 0.829);
+  transform: scale(1.1);
+}
+
+.buttonAdicionar {
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 8px;
+  border: none;
+  margin: 9px 9px;
+  padding: 14px 20px;
+  color: white;
+  background-color: #1504ff;
+}
+.buttonAdicionar:hover {
+  background-color: #1504ffc9;
+}
+
+.textbox {
+  padding: 12px 12px;
+  margin: 6px 9px;
+  box-sizing: border-box;
+}
+
+.textboxTitle {
+  padding: 12px 12px;
+  margin: 6px 9px;
+  box-sizing: border-box;
+  font-size: 45px;
+}
+
+.textboxMostra {
+  padding: 9px 12px;
+  margin: 6px 9px;
+  box-sizing: border-box;
+  background-color: rgb(211, 211, 211);
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.table {
+  margin: 0 auto;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.table td {
+  text-overflow: ellipsis;
+}
+
+.table th {
+  background-color: #f4f4f4;
+}
