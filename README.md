@@ -2,7 +2,7 @@
  Sistema de Gerenciamneto de Aluno utilizando o Java Spring Boot de BackEnd e React de FrontEnd.
  
 # Realizado:
-  Arthur Prescinotti Severino
+  Arthur Prescinotti Severino \n
   Pedro Henrique França
 
 # Passo a Passo de como rodar o programa
