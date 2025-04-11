@@ -5,5 +5,5 @@
    -Arthur Prescinotti Severino  
    -Pedro Henrique França
 
-# Passo a Passo de como rodar o programa
+## Passo a Passo de como rodar o programa
  1° Passo: Verificar se o MongoDB, Java e React está instalado na maquina.
