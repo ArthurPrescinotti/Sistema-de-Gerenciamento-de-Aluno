@@ -7,4 +7,5 @@
 
 ## Passo a Passo de como rodar o programa
  1° Passo: Verificar se o MongoDB, Java e React está instalado na maquina.  
- 2° Passo: 
+ 2° Passo: Rodar o Main.java.
+ 3° Passo: No arquivo do 
