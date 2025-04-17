@@ -9,4 +9,4 @@
  1° Passo: Verificar se o MongoDB, Java e React está instalado na maquina.  
  2° Passo: Rodar o Main.java.  
  3° Passo: Entrar na pasta Front-End.  
- 4° Passo: abrir o terminal e colocar o código: npx start.  
+ 4° Passo: abrir o terminal e colocar o código: npm start.  
