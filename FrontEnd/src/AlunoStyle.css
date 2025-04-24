@@ -24,8 +24,8 @@
   font-size: 15px;
   border-radius: 8px;
   border: none;
-  margin: 9px 9px;
-  padding: 14px 20px;
+  margin: 6px 6px;
+  padding: 14px 15px;
   color: white;
   background-color: #1504ff;
 }
@@ -33,10 +33,18 @@
   background-color: #1504ffc9;
 }
 
-.textbox {
-  padding: 12px 12px;
-  margin: 6px 9px;
+.textbox .MuiInputBase-root {
+  padding: 5px;
+  border-radius: 5px;
+  margin: 6px 6px;
   box-sizing: border-box;
+  width: 80%;
+  height: 45px;
+}
+
+.textbox .MuiInputLabel-root {
+  color: #333;
+  font-size: 16px;
 }
 
 .textboxTitle {
@@ -59,7 +67,7 @@
 }
 
 .table {
-  margin: 0 auto;
+  margin: 20px auto;
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;

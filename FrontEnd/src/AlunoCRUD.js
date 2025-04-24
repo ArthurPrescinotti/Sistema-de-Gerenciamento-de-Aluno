@@ -1,5 +1,8 @@
+import * as React from "react";
+import TextField from "@mui/material/TextField";
 import { useEffect, useState } from "react";
 import "./AlunoStyle.css";
+import { Tooltip } from "@mui/material";
 
 function AlunoCRUD() {
   //Estado para armazena os alunos
@@ -16,6 +19,13 @@ function AlunoCRUD() {
   const [error, setError] = useState(false);
   //Estado para mostrar o carregamento
   const [loading, setLoading] = useState(true);
+  //Erro no textfield
+  const [errors, setErrors] = useState({
+    nome: false,
+    telefone: false,
+    email: false,
+    endereco: false,
+  });
 
   //Requisicao da API
   const fetchAluno = async () => {
@@ -52,8 +62,19 @@ function AlunoCRUD() {
   //Funcao de criacao ou edicao de aluno
   const handleSubmit = async () => {
     if (!aluno.nome || !aluno.telefone || !aluno.email || !aluno.endereco) {
-      alert("Todos os campos devem ser preenchidos!");
+      const newErrors = {
+        nome: !aluno.nome,
+        telefone: !aluno.telefone,
+        email: !aluno.email,
+        endereco: !aluno.endereco,
+      };
+
+      alert("Campo em vermelho não está preenchido Corretamente !!!");
+
+      setErrors(newErrors);
       return;
+    } else {
+      alert("Aluno cadastrado com Sucesso !!!");
     }
 
     const novoAluno = aluno;
@@ -111,37 +132,67 @@ function AlunoCRUD() {
         {/*Formulario*/}
         <div className="textbox">
           <div className="textbox">
-            <input
+            <TextField
               className="textbox"
-              placeholder="Nome do Aluno"
+              label="Nome do Aluno"
+              variant="outlined"
               value={aluno.nome}
               onChange={(e) => setAluno({ ...aluno, nome: e.target.value })}
               maxLength={50}
-            ></input>
-            <input
+              error={errors.nome}
+              helperText={errors.nome && "Nome é obrigatório"}
+            ></TextField>
+            <TextField
               className="textbox"
-              placeholder="Telefone do Aluno"
+              label="Telefone do Aluno"
+              variant="outlined"
               value={aluno.telefone}
               onChange={(e) => setAluno({ ...aluno, telefone: e.target.value })}
               maxLength={15}
-            ></input>
-            <input
+              error={errors.telefone}
+              helperText={errors.telefone && "Telefone é obrigatório"}
+            ></TextField>
+            <TextField
               className="textbox"
-              placeholder="Email do Aluno"
+              label="Email do Aluno"
+              variant="outlined"
               value={aluno.email}
               onChange={(e) => setAluno({ ...aluno, email: e.target.value })}
               maxLength={100}
-            ></input>
-            <input
+              error={errors.email}
+              helperText={errors.email && "Email é obrigatório"}
+            ></TextField>
+            <TextField
               className="textbox"
-              placeholder="Endereço do Aluno"
+              label="Endereço do Aluno"
+              variant="outlined"
               value={aluno.endereco}
               onChange={(e) => setAluno({ ...aluno, endereco: e.target.value })}
               maxLength={200}
-            ></input>
-            <button onClick={handleSubmit} className="buttonAdicionar">
-              {editando ? "Atualizar Aluno" : "Adicionar Aluno"}
-            </button>
+              error={errors.endereco}
+              helperText={errors.endereco && "Endereço é obrigatório"}
+            ></TextField>
+
+            <Tooltip
+              title={editando ? "Atualizar Aluno" : "Adicionar Aluno"}
+              placement="top"
+              slotProps={{
+                popper: {
+                  modifiers: [
+                    {
+                      name: "offset",
+                      options: {
+                        offset: [0, -12],
+                      },
+                    },
+                  ],
+                },
+              }}
+            >
+              <button onClick={handleSubmit} className="buttonAdicionar">
+                {editando ? "Atualizar Aluno" : "Adicionar Aluno"}
+              </button>
+            </Tooltip>
           </div>
         </div>
 
@@ -160,23 +211,128 @@ function AlunoCRUD() {
             <tbody>
               {alunos.map((estudante) => (
                 <tr key={estudante.id} className="textboxMostra">
-                  <td className="textboxMostra">{estudante.nome}</td>
-                  <td className="textboxMostra">{estudante.telefone}</td>
-                  <td className="textboxMostra">{estudante.email}</td>
-                  <td className="textboxMostra">{estudante.endereco}</td>
+                  <Tooltip
+                    title={estudante.nome}
+                    placement="top"
+                    slotProps={{
+                      popper: {
+                        modifiers: [
+                          {
+                            name: "offset",
+                            options: {
+                              offset: [0, -40],
+                            },
+                          },
+                        ],
+                      },
+                    }}
+                  >
+                    <td className="textboxMostra">{estudante.nome}</td>
+                  </Tooltip>
+                  <Tooltip
+                    title={estudante.telefone}
+                    placement="top"
+                    slotProps={{
+                      popper: {
+                        modifiers: [
+                          {
+                            name: "offset",
+                            options: {
+                              offset: [0, -40],
+                            },
+                          },
+                        ],
+                      },
+                    }}
+                  >
+                    <td className="textboxMostra">{estudante.telefone}</td>
+                  </Tooltip>
+
+                  <Tooltip
+                    title={estudante.email}
+                    placement="top"
+                    slotProps={{
+                      popper: {
+                        modifiers: [
+                          {
+                            name: "offset",
+                            options: {
+                              offset: [0, -40],
+                            },
+                          },
+                        ],
+                      },
+                    }}
+                  >
+                    <td className="textboxMostra">{estudante.email}</td>
+                  </Tooltip>
+
+                  <Tooltip
+                    title={estudante.endereco}
+                    placement="top"
+                    slotProps={{
+                      popper: {
+                        modifiers: [
+                          {
+                            name: "offset",
+                            options: {
+                              offset: [0, -40],
+                            },
+                          },
+                        ],
+                      },
+                    }}
+                  >
+                    <td className="textboxMostra">{estudante.endereco}</td>
+                  </Tooltip>
+
                   <td className="textboxMostra">
-                    <button
-                      onClick={() => handleEdit(estudante)}
-                      className="button"
+                    <Tooltip
+                      title="Editar"
+                      placement="top"
+                      slotProps={{
+                        popper: {
+                          modifiers: [
+                            {
+                              name: "offset",
+                              options: {
+                                offset: [0, -12],
+                              },
+                            },
+                          ],
+                        },
+                      }}
                     >
-                      <img src="./Edit.png" className="image" alt=""></img>
-                    </button>
-                    <button
-                      onClick={() => handleDelete(estudante.id)}
-                      className="button"
+                      <button
+                        onClick={() => handleEdit(estudante)}
+                        className="button"
+                      >
+                        <img src="./Edit.png" className="image" alt=""></img>
+                      </button>
+                    </Tooltip>
+                    <Tooltip
+                      title="Deletar"
+                      placement="top"
+                      slotProps={{
+                        popper: {
+                          modifiers: [
+                            {
+                              name: "offset",
+                              options: {
+                                offset: [0, -12],
+                              },
+                            },
+                          ],
+                        },
+                      }}
                     >
-                      <img src="./Delete.png" className="image" alt=""></img>
-                    </button>
+                      <button
+                        onClick={() => handleDelete(estudante.id)}
+                        className="button"
+                      >
+                        <img src="./Delete.png" className="image" alt=""></img>
+                      </button>
+                    </Tooltip>
                   </td>
                 </tr>
               ))}
