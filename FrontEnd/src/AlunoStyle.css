@@ -23,6 +23,10 @@
   background-color: #fff;
 }
 
+.buttonPaginacao:disabled {
+  cursor: not-allowed;
+}
+
 .button:hover {
   background-color: rgba(248, 119, 119, 0.829);
   transform: scale(1.1);
