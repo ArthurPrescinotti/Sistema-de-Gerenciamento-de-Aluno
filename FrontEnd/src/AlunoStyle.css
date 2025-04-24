@@ -17,10 +17,11 @@
 .buttonPaginacao {
   cursor: pointer;
   border-radius: 8px;
-  border: none;
-  padding: 5px 5px;
+  border: 1.9px solid black;
+
   margin: 1px 9px;
   background-color: #fff;
+  font-size: 25px;
 }
 
 .buttonPaginacao:disabled {

@@ -397,7 +397,7 @@ function AlunoCRUD() {
                 {
                   name: "offset",
                   options: {
-                    offset: [0, -10],
+                    offset: [0],
                   },
                 },
               ],
