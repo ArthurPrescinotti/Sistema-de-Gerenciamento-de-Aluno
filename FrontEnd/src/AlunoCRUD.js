@@ -62,7 +62,7 @@ function AlunoCRUD() {
   //Funcao de criacao ou edicao de aluno
   const handleSubmit = async () => {
     if (!aluno.nome || !aluno.telefone || !aluno.email || !aluno.endereco) {
-      const newErrors = {
+      const NovoErrors = {
         nome: !aluno.nome,
         telefone: !aluno.telefone,
         email: !aluno.email,
@@ -71,7 +71,7 @@ function AlunoCRUD() {
 
       alert("Campo em vermelho não está preenchido Corretamente !!!");
 
-      setErrors(newErrors);
+      setErrors(NovoErrors);
       return;
     } else {
       alert("Aluno cadastrado com Sucesso !!!");
