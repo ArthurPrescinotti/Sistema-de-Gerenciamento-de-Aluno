@@ -77,6 +77,13 @@ function AlunoCRUD() {
       setErrors(NovoErrors);
       return;
     } else {
+      const NovoErrorsVazio = {
+        nome: false,
+        telefone: false,
+        email: false,
+        endereco: false,
+      };
+      setErrors(NovoErrorsVazio);
       alert("Aluno cadastrado com Sucesso !!!");
     }
 
