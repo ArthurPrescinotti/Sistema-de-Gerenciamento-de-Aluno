@@ -26,6 +26,9 @@ function AlunoCRUD() {
     email: false,
     endereco: false,
   });
+  //Paginacao
+  const [quantidadePaginas, setquantidadePaginas] = useState(1);
+  const [linhasPorPagina] = useState(9);
 
   //Requisicao da API
   const fetchAluno = async () => {
@@ -123,6 +126,22 @@ function AlunoCRUD() {
     }
   };
 
+  const indexUltimaLinha = quantidadePaginas * linhasPorPagina;
+  const indexPrimeiraLinha = indexUltimaLinha - linhasPorPagina;
+  const alunosPaginaAtual = alunos.slice(indexPrimeiraLinha, indexUltimaLinha);
+
+  const handleProximaPagina = () => {
+    if (quantidadePaginas < Math.ceil(alunos.length / linhasPorPagina)) {
+      setquantidadePaginas(quantidadePaginas + 1);
+    }
+  };
+
+  const handleAnteriorPagina = () => {
+    if (quantidadePaginas > 1) {
+      setquantidadePaginas(quantidadePaginas - 1);
+    }
+  };
+
   return (
     <div className="container">
       <div>
@@ -209,7 +228,7 @@ function AlunoCRUD() {
               </tr>
             </thead>
             <tbody>
-              {alunos.map((estudante) => (
+              {alunosPaginaAtual.map((estudante) => (
                 <tr key={estudante.id} className="textboxMostra">
                   <Tooltip
                     title={estudante.nome}
@@ -339,6 +358,63 @@ function AlunoCRUD() {
             </tbody>
           </table>
         )}
+        {/* Controle de Pagina */}
+        <Tooltip
+          title="Anterior"
+          placement="top"
+          slotProps={{
+            popper: {
+              modifiers: [
+                {
+                  name: "offset",
+                  options: {
+                    offset: [0, -12],
+                  },
+                },
+              ],
+            },
+          }}
+        >
+          <button
+            className="buttonPaginacao"
+            onClick={handleAnteriorPagina}
+            disabled={quantidadePaginas === 1}
+          >
+            <img src="./seta-esquerda.png" className="image" alt=""></img>
+          </button>
+        </Tooltip>
+
+        <span className="textPaginacao">{`Página ${quantidadePaginas} de ${Math.ceil(
+          alunos.length / linhasPorPagina
+        )}`}</span>
+
+        <Tooltip
+          title="Próximo"
+          placement="top"
+          slotProps={{
+            popper: {
+              modifiers: [
+                {
+                  name: "offset",
+                  options: {
+                    offset: [0, -10],
+                  },
+                },
+              ],
+            },
+          }}
+        >
+          {" "}
+          <button
+            className="buttonPaginacao"
+            onClick={handleProximaPagina}
+            disabled={
+              quantidadePaginas === Math.ceil(alunos.length / linhasPorPagina)
+            }
+          >
+            <img src="./seta-direita.png" className="image" alt=""></img>
+          </button>
+        </Tooltip>
       </div>
     </div>
   );
