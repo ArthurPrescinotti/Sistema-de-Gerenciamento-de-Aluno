@@ -10,4 +10,6 @@
  2° Passo: Abrir o pasta BackEnd em um Idea para Rodar o Java(Exemplo: Eclipse, Intellij).  
  3° Passo: Rodar o Main.java.  
  4° Passo: Abrir a pasta Front-End em uma Idea para Rodar o React(Exemplo: Visual Studio Code).    
- 5° Passo: abrir o terminal e colocar o código: npm start.  
+ 5° Passo: abrir o terminal e colocar o código:
+   npm install(se pedir).  
+   npm start.  
