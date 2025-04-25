@@ -164,7 +164,6 @@ function AlunoCRUD() {
               variant="outlined"
               value={aluno.nome}
               onChange={(e) => setAluno({ ...aluno, nome: e.target.value })}
-              maxLength={50}
               error={errors.nome}
               helperText={errors.nome && "Nome é obrigatório"}
             ></TextField>
@@ -174,7 +173,6 @@ function AlunoCRUD() {
               variant="outlined"
               value={aluno.telefone}
               onChange={(e) => setAluno({ ...aluno, telefone: e.target.value })}
-              maxLength={15}
               error={errors.telefone}
               helperText={errors.telefone && "Telefone é obrigatório"}
             ></TextField>
@@ -184,7 +182,6 @@ function AlunoCRUD() {
               variant="outlined"
               value={aluno.email}
               onChange={(e) => setAluno({ ...aluno, email: e.target.value })}
-              maxLength={100}
               error={errors.email}
               helperText={errors.email && "Email é obrigatório"}
             ></TextField>
@@ -194,7 +191,6 @@ function AlunoCRUD() {
               variant="outlined"
               value={aluno.endereco}
               onChange={(e) => setAluno({ ...aluno, endereco: e.target.value })}
-              maxLength={200}
               error={errors.endereco}
               helperText={errors.endereco && "Endereço é obrigatório"}
             ></TextField>
