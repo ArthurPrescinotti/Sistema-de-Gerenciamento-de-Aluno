@@ -132,10 +132,10 @@ class AlunoControllerTest {
     @Test
     void findAll() {
 //        ResponseEntity<Aluno[]> response = restTemplate.getForEntity(apiConsulta, Aluno[].class);
-//
+
 //        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 //        assertThat(response.getBody()).isNotNull();
-//
+
 //        Aluno[] alunos = response.getBody();
 //        assertThat(alunos.length).isGreaterThanOrEqualTo(0);
 
