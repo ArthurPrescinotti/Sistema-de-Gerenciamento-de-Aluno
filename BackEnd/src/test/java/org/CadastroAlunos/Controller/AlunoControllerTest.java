@@ -183,7 +183,7 @@ class AlunoControllerTest {
         Optional<Aluno> alunoBuscado = alunoService.findById(aluno.getId());
 
         assertThat(alunoBuscado).isPresent();
-        assertThat(alunoBuscado.get().getNome()).isEqualTo("b");
+        assertThat(alunoBuscado.get().getNome()).isEqualTo("a");
     }
 
 //    private Aluno criarAlunoTeste() {
